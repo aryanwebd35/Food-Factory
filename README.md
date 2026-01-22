@@ -1,5 +1,5 @@
 # 🍔 Food Factory
-
+## Deployed - https://food-factory-frontend.vercel.app/
 ### A Full-Stack Food Delivery Application
 
 **Food Factory** is a robust, full-stack food delivery platform built with the MERN stack. It features a responsive customer-facing frontend, a comprehensive admin panel for restaurant management, and a secure backend API.
