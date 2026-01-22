@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Outfit;
+}
+
+:root {
+  --bg-color: #FCFCFC;
+  --text-color: #000000;
+  --secondary-bg: #f9f9f9;
+  --border-color: #A9A9A9;
+  --sidebar-active-bg: #fff0ed;
+  --sidebar-active-border: #FF4C24;
+  --input-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --secondary-bg: #1e1e1e;
+  --border-color: #444444;
+  --sidebar-active-bg: #2a2a2a;
+  --sidebar-active-border: #FF4C24;
+  --input-bg: #2a2a2a;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #A9A9A9;
+}
+
+.app-content {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cursor {
+  cursor: pointer;
+}

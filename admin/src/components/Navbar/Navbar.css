@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 4%;
+}
+
+.navbar .logo {
+    width: max(10%, 80px);
+}
+
+.navbar .profile {
+    width: 40px;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navbar-theme-toggle {
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.navbar-theme-toggle:hover {
+    transform: scale(1.1);
+}
