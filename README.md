@@ -108,10 +108,5 @@ npm run dev
 
 ---
 
-## 📸 Screenshots
-
-*(Add screenshots of your Home Page, Cart, and Admin Dashboard here)*
-
----
 
 Made with ❤️ by [Aryan](https://github.com/aryanwebd35)
