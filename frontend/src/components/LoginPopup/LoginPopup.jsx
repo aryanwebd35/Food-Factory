@@ -43,34 +43,30 @@ const LoginPopup = ({ setShowLogin }) => {
 
     // Handles form submission (either login or signup)
     const onLogin = async (e) => {
-        e.preventDefault() // Prevent page reload
+        e.preventDefault()
 
-        let new_url = url; // Start with base API URL
-
-        // Append endpoint depending on login/signup
+        let new_url = url;
         if (currState === "Login") {
-            new_url += "/api/user/login"      // If logging in, use login API
+            new_url += "/api/user/login"
         } else {
-            new_url += "/api/user/register"   // If signing up, use register API
+            new_url += "/api/user/register"
         }
 
-        // Make API call with form data
-        const response = await axios.post(new_url, data)
+        try {
+            const response = await axios.post(new_url, data)
 
-        // If login/signup was successful
-        if (response.data.success) {
-            setToken(response.data.token) // Set token in React context
-            localStorage.setItem("token", response.data.token) // Also store token in localStorage
-
-            // Load cart data using the token (sync cart items)
-            loadCartData({ token: response.data.token })
-
-            // Close the login popup
-            setShowLogin(false)
-        }
-        else {
-            // Show error toast if login/register failed
-            toast.error(response.data.message)
+            if (response.data.success) {
+                setToken(response.data.token)
+                localStorage.setItem("token", response.data.token)
+                loadCartData({ token: response.data.token })
+                setShowLogin(false)
+            }
+            else {
+                toast.error(response.data.message)
+            }
+        } catch (error) {
+            console.error("Login Error:", error);
+            toast.error("Something went wrong. Please try again.")
         }
     }
 
