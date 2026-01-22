@@ -22,19 +22,24 @@ import { ClerkProvider } from '@clerk/clerk-react'
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
-if (!PUBLISHABLE_KEY) {
-  throw new Error("Missing Publishable Key")
-}
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Rendering the app inside the 'root' div in index.html
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-    <BrowserRouter>
-      {/* Context Provider -> Makes shared state available to all components */}
-      <StoreContextProvider>
-        {/* Loads the entire app */}
-        <App />
-      </StoreContextProvider>
-    </BrowserRouter>
-  </ClerkProvider>
-)
+if (!PUBLISHABLE_KEY) {
+  root.render(
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', flexDirection: 'column', textAlign: 'center', fontFamily: 'sans-serif' }}>
+      <h1 style={{ color: '#ff4c24' }}>Configuration Missing</h1>
+      <p>The <strong>VITE_CLERK_PUBLISHABLE_KEY</strong> is missing.</p>
+      <p>Please add it to your <code>frontend/.env</code> file.</p>
+    </div>
+  )
+} else {
+  root.render(
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+      <BrowserRouter>
+        <StoreContextProvider>
+          <App />
+        </StoreContextProvider>
+      </BrowserRouter>
+    </ClerkProvider>
+  )
+}
