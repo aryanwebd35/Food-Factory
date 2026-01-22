@@ -4,7 +4,7 @@ import './Navbar.css' // Importing CSS styling specific to Navbar
 import { assets } from '../../assets/assets' // Importing image/icon assets
 import { Link, useNavigate } from 'react-router-dom' // Link for navigation without reload, useNavigate for programmatic redirects
 import { StoreContext } from '../../Context/StoreContext' // Importing global context
-import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, UserButton, SignInButton } from "@clerk/clerk-react";
 
 // Navbar component receives setShowLogin function as a prop (to open/close login popup)
 const Navbar = ({ setShowLogin, theme, toggleTheme }) => {
@@ -47,13 +47,14 @@ const Navbar = ({ setShowLogin, theme, toggleTheme }) => {
         {/* Cart icon with red dot if cart is not empty */}
         <Link to='/cart' className='navbar-search-icon'>
           <img src={assets.basket_icon} alt="" />
-          <div className={getTotalCartAmount() > 0 ? "dot" : ""}></div> {/* Shows red dot only if cart total is greater than 0 */}
+          <div className={getTotalCartAmount() > 0 ? "dot" : ""}></div>
         </Link>
 
         {/* If user is not logged in, show "sign in" button */}
         {/* Clerk Auth UI */}
+        {/* Clerk Auth UI */}
         <SignedOut>
-          <button onClick={() => setShowLogin(true)}>sign in</button>
+          <SignInButton mode="modal" />
         </SignedOut>
 
         <SignedIn>

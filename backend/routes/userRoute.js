@@ -1,14 +1,8 @@
 import express from 'express'; // Importing Express framework
-import { loginUser, registerUser, googleLogin } from '../controllers/userController.js'; // Importing controller functions
+import { googleLogin } from '../controllers/userController.js'; // Importing controller functions
 
 // Creating a router instance for user-related routes
 const userRouter = express.Router();
-
-// Route to handle user registration
-userRouter.post("/register", registerUser);
-
-// Route to handle user login
-userRouter.post("/login", loginUser);
 
 // Route for Google Login
 userRouter.post("/google-login", googleLogin);

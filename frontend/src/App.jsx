@@ -11,7 +11,6 @@ import { Route, Routes } from 'react-router-dom'
 
 // Other pages used in routing
 import Cart from './pages/Cart/Cart'
-import LoginPopup from './components/LoginPopup/LoginPopup'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import MyOrders from './pages/MyOrders/MyOrders'
 import Verify from './pages/Verify/Verify'
@@ -25,8 +24,7 @@ import { StoreContext } from './Context/StoreContext';
 import axios from 'axios';
 
 const App = () => {
-  // State to show/hide login popup
-  const [showLogin, setShowLogin] = useState(false)
+
 
   // Theme state
   const [theme, setTheme] = useState("light");
@@ -78,12 +76,12 @@ const App = () => {
       {/* Toasts container -> Displays notifications */}
       <ToastContainer />
 
-      {/* Show login popup if 'showLogin' is true */}
-      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
+      {/* Toasts container -> Displays notifications */}
+      <ToastContainer />
 
       <div className='app'>
-        {/* Navbar -> top menu bar, passes setShowLogin to toggle login popup */}
-        <Navbar setShowLogin={setShowLogin} theme={theme} toggleTheme={toggleTheme} />
+        {/* Navbar -> top menu bar */}
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
 
         {/* Routes -> Handles page switching without reload */}
         <Routes>
